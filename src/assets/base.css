@@ -1,5 +1,8 @@
 :root {
+  --color-yellow: #FFDF35;
   --color-caral: #EB2678;
+  --color-pink: #FF42E0;
+  --color-dark-pink: #BB20A2;
   --color-purple: #8E1BCB;
   --color-blue: #0B0F71;
   --color-white: #fff;
@@ -20,6 +23,7 @@
 
 body {
   min-height: 100vh;
+  height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
 
