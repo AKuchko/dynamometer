@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
+interface BaseButtonProps {
+  theme?: 'pink' | 'yellow';
+  disabled?: boolean;
+}
 
-const { theme } = defineProps({
-  theme: {
-    type: String as PropType<'pink' | 'yellow'>,
-    default: 'pink',
-  },
-});
+const { theme = 'pink' } = defineProps<BaseButtonProps>();
 </script>
 
 <template>
