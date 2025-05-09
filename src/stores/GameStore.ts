@@ -5,7 +5,7 @@ interface StoreShape {
   state: GameState;
 }
 
-export const useGameStore = defineStore('counter', {
+export const useGameStore = defineStore('gameStore', {
   state: (): StoreShape => ({
     state: GameState.InitialScreen,
   }),
