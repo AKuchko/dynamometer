@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { storeToRefs } from 'pinia';
-import { useGameStore } from '@/stores/GameStore';
 import { GameState } from '@/types';
-import BaseButton from './BaseButton.vue';
+import BaseButton from './base/BaseButton.vue';
+import { useGameStore } from '@/stores/GameStore';
 
 const emit = defineEmits<{
   (e: 'make-hit'): void;
   (e: 'new-game'): void;
 }>()
+
+const gameStore = useGameStore()
 
 const hintsByGameState: Partial<Record<GameState, string>> = {
   [GameState.InitialScreen]: 'Привет! \nпроверим твою силу!',
@@ -17,34 +18,33 @@ const hintsByGameState: Partial<Record<GameState, string>> = {
   [GameState.Winner]: 'ВОТ ЭТО СИЛА! \nТы выбил главный приз! \nРубин',
 }
 
-const { currentGameState } = storeToRefs(useGameStore())
+const hintMessage = computed(() => hintsByGameState[gameStore.state])
 
-const hintMessage = computed(() => hintsByGameState[currentGameState.value])
+const isButtonHidden = computed(() => gameStore.state === GameState.Hitted)
 
 const buttonMessage = computed(() => {
-  return currentGameState.value === GameState.InGame
+  return gameStore.state === GameState.InGame
     ? 'Удар!'
     : 'Новая игра'
 })
 
 const onPlayClick = () => {
-  if (currentGameState.value === GameState.InGame) emit('make-hit')
+  if (gameStore.state === GameState.InGame) emit('make-hit')
   else emit('new-game')
 }
 </script>
 
 <template>
   <div
-    class="play-button"
-    :class="{ 'play-button--hidden': currentGameState === GameState.Hitted }"
+    class="game-control-button"
+    :class="{ 'game-control-button--hidden': isButtonHidden }"
   >
-    <p class="play-button__hint-message">
-      {{ currentGameState }}
+    <p class="game-control-button__hint-message">
       {{ hintMessage }}
     </p>
     <BaseButton
-      class="play-button__action-button"
-      :disabled="currentGameState === GameState.Hitted"
+      class="game-control-button__action-button"
+      :disabled="isButtonHidden"
       @click="onPlayClick"
     >
       {{ buttonMessage }}
@@ -53,20 +53,21 @@ const onPlayClick = () => {
 </template>
 
 <style scoped>
-.play-button {
+.game-control-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 13px;
+
+  width: 172px;
 }
 
-.play-button__hint-message {
-  max-width: 172px;
+.game-control-button__hint-message {
   font-weight: 700;
   text-align: center;
 }
 
-.play-button--hidden {
+.game-control-button--hidden {
   opacity: 0;
 }
 </style>
