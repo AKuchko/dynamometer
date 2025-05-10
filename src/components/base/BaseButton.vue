@@ -1,16 +1,26 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import type { CSSClasses } from '@/types';
+
 interface BaseButtonProps {
   theme?: 'pink' | 'yellow';
   disabled?: boolean;
 }
 
-const { theme = 'pink' } = defineProps<BaseButtonProps>();
+const { theme = 'pink', disabled } = defineProps<BaseButtonProps>();
+
+const rootCssClasses = computed((): CSSClasses => ({
+  [`base-button--${theme}`]: true,
+  'base-button--disabled': disabled,
+}))
 </script>
 
 <template>
   <button
     class="base-button"
-    :class="`base-button--${theme}`"
+    :class="rootCssClasses"
+    :disabled="disabled"
+    :aria-disabled="disabled"
   >
     <slot />
   </button>
