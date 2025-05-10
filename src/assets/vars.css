@@ -1,0 +1,21 @@
+:root {
+  --color-green: #00D355;
+  --color-yellow: #FFDF35;
+  --color-caral: #EB2678;
+  --color-pink: #FF42E0;
+  --color-dark-pink: #BB20A2;
+  --color-purple: #8E1BCB;
+  --color-night-blue: #0a0f71;
+  --color-blue: #0B0F71;
+  --color-deep-blue: #0A0E68;
+  --color-sky-blue: #C3E5F5;
+  --color-white: #fff;
+}
+
+:root {
+  --dnm-color-text: var(--color-white);
+  --dnm-background: var(--color-night-blue);
+
+  --dnm-dynamometer-bg: var(--color-sky-blue);
+  --dnm-dynamometer-filled: var(--color-green);
+}
