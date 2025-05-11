@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useGameStore } from '@/stores/GameStore';
-import { GameState, type CSSClasses } from '@/types';
-import { computed, ref, watch } from 'vue';
+import { useGameStore } from '@/stores/GameStore'
+import { GameState, type CSSClasses } from '@/types'
+import { computed, ref, watch } from 'vue'
 
 const gameStore = useGameStore()
 
 const isAnimationActive = ref(false)
 
-const scaleValueEl = ref<HTMLElement | null>(null);
+const scaleValueEl = ref<HTMLElement | null>(null)
 
 const getElementHeight = (element: HTMLElement | null) => {
   if (!element) return 0
@@ -24,13 +24,13 @@ const getPowerValue = (): number => {
 }
 
 const stopAnimation = () => {
-  if (!scaleValueEl.value) return;
+  if (!scaleValueEl.value) return
 
   const power = getPowerValue()
-  isAnimationActive.value = false;
+  isAnimationActive.value = false
 
   requestAnimationFrame(() => {
-    if (scaleValueEl.value) scaleValueEl.value.style.height = `${power}%`;
+    if (scaleValueEl.value) scaleValueEl.value.style.height = `${power}%`
   })
 }
 
@@ -63,8 +63,8 @@ const rootCssClasses = computed((): CSSClasses => ({
     :class="rootCssClasses"
   >
     <div
-      class="hit-power-scale__power-value"
       ref="scaleValueEl"
+      class="hit-power-scale__power-value"
     />
     <img
       class="hit-power-scale__power-scale"

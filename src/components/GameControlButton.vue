@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { GameState } from '@/types';
-import BaseButton from './base/BaseButton.vue';
-import { useGameStore } from '@/stores/GameStore';
+import { computed } from 'vue'
+import { GameState } from '@/types'
+import BaseButton from './base/BaseButton.vue'
+import { useGameStore } from '@/stores/GameStore'
 
 const emit = defineEmits<{
   (e: 'make-hit'): void;

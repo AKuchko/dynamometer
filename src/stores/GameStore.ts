@@ -15,7 +15,7 @@ export const useGameStore = defineStore('gameStore', {
   }),
   actions: {
     setGameState(state: GameState) {
-      this.state = state;
+      this.state = state
     },
     setHitPower(value: number) {
       this.hitPower = value

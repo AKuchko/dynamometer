@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, useTemplateRef } from 'vue'
-import { GameState } from './types';
-import { useGameStore } from './stores/GameStore';
-import GamePowerScale from './components/HitPowerScale.vue';
-import GameButton from './components/GameControlButton.vue';
-import GameRobot from './components/GameRobot.vue';
-import HitAnimation from './components/HitAnimation.vue';
-import ScoreScale from './components/ScoreScale.vue';
+import { GameState } from './types'
+import { useGameStore } from './stores/GameStore'
+import GamePowerScale from './components/HitPowerScale.vue'
+import GameButton from './components/GameControlButton.vue'
+import GameRobot from './components/GameRobot.vue'
+import HitAnimation from './components/HitAnimation.vue'
+import ScoreScale from './components/ScoreScale.vue'
 
 const gameStore = useGameStore()
 
@@ -26,9 +26,7 @@ const makeHit = () => {
 }
 
 const onHitAnimationEnd = () => {
-  scoreLevel.value = Math.round(gameStore.hitPower / (100 / gameStore.levelsCount));
-  console.log('onHitAnimationEnd', scoreLevel.value);
-
+  scoreLevel.value = Math.round(gameStore.hitPower / (100 / gameStore.levelsCount))
   scoreEl.value?.startScoreAnimation(scoreLevel.value)
 }
 
@@ -55,8 +53,8 @@ const onScoreAnimationEnd = () => {
         <GamePowerScale class="app__dynamometer" />
         <GameButton
           class="app__play-button"
-          @new-game="startGame"
           @make-hit="makeHit"
+          @new-game="startGame"
         />
         <GameRobot class="app__robot-view" />
       </div>

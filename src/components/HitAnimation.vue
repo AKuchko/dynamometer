@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useGameStore } from '@/stores/GameStore';
-import { GameState, type CSSClasses } from '@/types';
+import { computed, ref, watch } from 'vue'
+import { useGameStore } from '@/stores/GameStore'
+import { GameState, type CSSClasses } from '@/types'
 import HammerImage from '@/assets/images/hammer.webp'
-import HitButton from '@/components/icons/HitButton.vue';
+import HitButton from '@/components/icons/HitButton.vue'
 
 const emit = defineEmits<{
   (e: 'animationend'): void;
@@ -23,9 +23,9 @@ const startHitAnimation = () => {
     { transform: 'rotate(45deg) translate(10px, -20px)' },
     { transform: 'rotate(-90deg) translate(55px, -31.5px)' },
   ]
-  const animationOptions: KeyframeAnimationOptions = { duration: 600, iterations: 1 };
+  const animationOptions: KeyframeAnimationOptions = { duration: 600, iterations: 1 }
   const animation = hammerEl.value.animate(animationFrames, animationOptions)
-  animation.onfinish = onAnimationEnd;
+  animation.onfinish = onAnimationEnd
 }
 
 const resetHitAnimation = () => {
@@ -55,9 +55,9 @@ const rootCssClasses = computed((): CSSClasses => ({
   >
     <div class="hit-animation__wrapper">
       <img
-        :src="HammerImage"
-        class="hit-animation__hammer"
         ref="hammerEl"
+        class="hit-animation__hammer"
+        :src="HammerImage"
       >
       <HitButton :pushed="isAnimationFinished" />
     </div>

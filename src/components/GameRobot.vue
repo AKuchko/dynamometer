@@ -28,8 +28,8 @@ const currentRobotStateIcon = computed(() => {
 <template>
   <div class="game-robot">
     <component
-      class="game-robot__robot"
       :is="currentRobotStateIcon"
+      class="game-robot__robot"
     />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { CSSClasses } from '@/types';
+import type { CSSClasses } from '@/types'
 
 const { level } = defineProps<{
   level: number
@@ -20,30 +20,30 @@ const rootCssClasses = computed((): CSSClasses => ({
 
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 79 301"
     class="measure-blocks"
     :class="rootCssClasses"
+    fill="none"
+    viewBox="0 0 79 301"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <rect width="73" height="47" x="2.5" fill="#080B3A" rx="4"/>
-    <rect class="measure-blocks__lvl-8" width="73" height="47" x="2.5" fill="url(#price-idle)" rx="4"/>
-    <rect class="measure-blocks__lvl-7" width="76" height="26" x="1.5" y="53" fill="#D1DEFB" stroke="#080B3A" stroke-width="2" rx="5"/>
-    <path class="measure-blocks__lvl-6" fill="#B7C8ED" stroke="#080B3A" stroke-width="2" d="M1.5 73h76v27h-76z"/>
-    <path class="measure-blocks__lvl-5" fill="#94AADC" stroke="#080B3A" stroke-width="2" d="M1.5 98h76v32h-76z"/>
-    <path class="measure-blocks__lvl-4" fill="#7593D6" stroke="#080B3A" stroke-width="2" d="M1.5 128h76v37h-76z"/>
-    <path class="measure-blocks__lvl-3" fill="#5878BE" stroke="#080B3A" stroke-width="2" d="M1.5 163h76v42h-76z"/>
-    <path class="measure-blocks__lvl-2" fill="#3A5CA5" stroke="#080B3A" stroke-width="2" d="M1.5 203h76v47h-76z"/>
-    <path class="measure-blocks__lvl-1" fill="#254B9D" stroke="#080B3A" stroke-width="2" d="M1.5 248h76v52h-76z"/>
-    <path fill="#fff" fill-opacity=".3" d="M3.5 76h71v3h-71zm0-20h71v3h-71z"/>
-    <path fill="#fff" fill-opacity=".3" d="M71.5 76h3v19h-3zm0-20h3v14h-3zm0 45h3v24h-3zm0 30h3v29h-3zm0 35h3v34h-3zm0 40h3v39h-3zm0 45h3v46h-3z"/>
-    <path fill="#fff" fill-opacity=".3" d="M3.5 101h71v3h-71zm0 30h71v3h-71zm0 35h71v3h-71zm0 40h71v3h-71zm0 45h71v3h-71z"/>
+    <rect fill="#080B3A" height="47" rx="4" width="73" x="2.5"/>
+    <rect class="measure-blocks__lvl-8" fill="url(#price-idle)" height="47" rx="4" width="73" x="2.5"/>
+    <rect class="measure-blocks__lvl-7" fill="#D1DEFB" height="26" rx="5" stroke="#080B3A" stroke-width="2" width="76" x="1.5" y="53"/>
+    <path class="measure-blocks__lvl-6" d="M1.5 73h76v27h-76z" fill="#B7C8ED" stroke="#080B3A" stroke-width="2"/>
+    <path class="measure-blocks__lvl-5" d="M1.5 98h76v32h-76z" fill="#94AADC" stroke="#080B3A" stroke-width="2"/>
+    <path class="measure-blocks__lvl-4" d="M1.5 128h76v37h-76z" fill="#7593D6" stroke="#080B3A" stroke-width="2"/>
+    <path class="measure-blocks__lvl-3" d="M1.5 163h76v42h-76z" fill="#5878BE" stroke="#080B3A" stroke-width="2"/>
+    <path class="measure-blocks__lvl-2" d="M1.5 203h76v47h-76z" fill="#3A5CA5" stroke="#080B3A" stroke-width="2"/>
+    <path class="measure-blocks__lvl-1" d="M1.5 248h76v52h-76z" fill="#254B9D" stroke="#080B3A" stroke-width="2"/>
+    <path d="M3.5 76h71v3h-71zm0-20h71v3h-71z" fill="#fff" fill-opacity=".3"/>
+    <path d="M71.5 76h3v19h-3zm0-20h3v14h-3zm0 45h3v24h-3zm0 30h3v29h-3zm0 35h3v34h-3zm0 40h3v39h-3zm0 45h3v46h-3z" fill="#fff" fill-opacity=".3"/>
+    <path d="M3.5 101h71v3h-71zm0 30h71v3h-71zm0 35h71v3h-71zm0 40h71v3h-71zm0 45h71v3h-71z" fill="#fff" fill-opacity=".3"/>
     <defs>
-      <linearGradient id="price-idle" x1="39" x2="39" y1="0" y2="47" gradientUnits="userSpaceOnUse">
+      <linearGradient id="price-idle" gradientUnits="userSpaceOnUse" x1="39" x2="39" y1="0" y2="47">
         <stop stop-color="#B676CB"/>
         <stop offset="1" stop-color="#fff" stop-opacity="0"/>
       </linearGradient>
-      <linearGradient id="price-reached" x1="39" x2="39" y1="0" y2="47" gradientUnits="userSpaceOnUse">
+      <linearGradient id="price-reached" gradientUnits="userSpaceOnUse" x1="39" x2="39" y1="0" y2="47">
         <stop stop-color="#FF9191"/>
         <stop offset="1" stop-color="#FF0303"/>
       </linearGradient>

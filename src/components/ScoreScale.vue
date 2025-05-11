@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import measureMain from '@/assets/images/measure_main.webp'
 import ruby from '@/assets/images/ruby.webp'
-import MeasureBlocks from './icons/MeasureBlocks.vue';
-import { ref } from 'vue';
+import MeasureBlocks from './icons/MeasureBlocks.vue'
+import { ref } from 'vue'
 
 const emit = defineEmits<{
   (e: 'animationend'): void;
@@ -11,8 +11,6 @@ const emit = defineEmits<{
 const animationLevel = ref(0)
 
 const startScoreAnimation = (level = 0) => {
-  console.log('startScoreAnimation', level, animationLevel.value);
-
   if (animationLevel.value !== level) setTimeout(() => {
     animationLevel.value += 1
     if (animationLevel.value !== level) startScoreAnimation(level)
